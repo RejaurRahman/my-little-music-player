@@ -57,7 +57,7 @@ module.exports = {
         historyApiFallback: true,
         before: function (app) {
             app.use('/assets', express.static('./src/assets'));
-            app.use('/img', express.static('./src/assets/img'));
+            app.use('/images', express.static('./src/assets/images'));
         }
     },
     plugins: getPlugins(),
