@@ -2,7 +2,7 @@
 
 body {
   min-height: 100vh;
-  background-color: #c9ced3;
+  background-color: $american-silver;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,9 +18,9 @@ body {
     height: 100%;
     width: calc(100% - 32px);
     max-height: 500px;
-    background-color: #e7e7e7;
+    background-color: $platinum;
     border-radius: 20px;
-    box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 30px 5px rgba($dark-charcoal, 0.3);
     position: relative;
 
     @media screen and (min-width: 376px) {
@@ -48,11 +48,11 @@ body {
       width: 100%;
       object-fit: cover;
       border-radius: 20px;
-      box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 5px 30px 5px rgba($dark-charcoal, 0.5);
     }
 
     &__progress {
-      background: #fff;
+      background-color: $white;
       border-radius: 5px;
       cursor: pointer;
       margin: 40px auto;
@@ -60,7 +60,7 @@ body {
       width: calc(100% - 32px);
 
       &--bar {
-        background: #242323;
+        background-color: $dark-charcoal;
         border-radius: 5px;
         height: 100%;
         width: 66%;
@@ -108,7 +108,7 @@ body {
 
         &:focus-visible {
           outline-offset: 3px;
-          outline: 2px solid #0af;
+          outline: 2px solid $blue-bolt;
         }
       }
 
@@ -120,7 +120,7 @@ body {
           content: '';
           left: 6px;
           box-sizing: border-box;
-          border-color: transparent transparent transparent rgb(135, 134, 134);
+          border-color: transparent transparent transparent $titanium;
           border-style: solid;
           border-width: 15px 0 15px 30px;
         }
@@ -151,7 +151,7 @@ body {
           top: 5px;
           content: '';
           box-sizing: border-box;
-          border-color: transparent transparent transparent rgb(135, 134, 134);
+          border-color: transparent transparent transparent $titanium;
           border-style: solid;
           border-width: 10px 0 10px 20px;
         }
