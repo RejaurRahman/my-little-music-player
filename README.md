@@ -2,7 +2,7 @@
 
 ## Features
 
-- Easy to start `yarn install` + `yarn start` (`npm install` + `npm start`)
+- Easy to start `yarn install` + `yarn start`
 - Don't worry about webpack config, just code
 - Custom HTML Modules plugin
 
@@ -36,7 +36,7 @@
 ## Adding libraries to JS
 
 1. Find the desired library at https://www.npmjs.com/ (example: https://www.npmjs.com/package/moment)
-2. Install `yarn add moment` or `npm install moment`
+2. Install `yarn add moment`
 3. Import library into your code `import moment from 'moment'`
 4. Use it
 
@@ -45,23 +45,17 @@
 Installation
 
 ```
-npm install
-or
 yarn
 ```
 
 Start dev server for development
 
 ```
-npm start
-or
 yarn start-yarn
 ```
 
 Build
 
 ```
-npm run build
-or
 yarn build
 ```
