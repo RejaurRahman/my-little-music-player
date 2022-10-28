@@ -3,6 +3,8 @@ const songTitle = document.getElementById('playerTitle');
 const artistTitle = document.getElementById('playerArtist');
 const music = document.querySelector('audio');
 const progressContainer = document.getElementById('playerProgress');
+const currentSongTime = document.getElementById('currentTime');
+const durationSongTime = document.getElementById('songTime');
 const progressBar = document.getElementById('progressBar');
 const prevButton = document.getElementById('prevControl');
 const nextButton = document.getElementById('nextControl');
@@ -115,6 +117,26 @@ function updateProgressBar(event) {
     const progressPercentage = (currentTime / duration) * 100;
 
     progressBar.style.width = `${progressPercentage}%`;
+
+    const durationMinutes = Math.floor(duration / 60);
+    let durationSeconds = Math.floor(duration % 60);
+
+    if (durationSeconds < 10) {
+      durationSeconds = `0${durationSeconds}`;
+    }
+
+    if (durationSeconds) {
+      durationSongTime.textContent = `${durationMinutes}:${durationSeconds}`;
+    }
+
+    const currentMinutes = Math.floor(currentTime / 60);
+    let currentSeconds = Math.floor(currentTime % 60);
+
+    if (currentSeconds < 10) {
+      currentSeconds = `0${currentSeconds}`;
+    }
+
+    currentSongTime.textContent = `${currentMinutes}:${currentSeconds}`;
   }
 }
 
