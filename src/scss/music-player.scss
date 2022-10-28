@@ -57,14 +57,14 @@ body {
       cursor: pointer;
       margin: px-to-rem(40) auto;
       height: px-to-rem(4);
-      width: calc(100% - 32px);
+      width: px-to-rem(300);
+      max-width: calc(100% - 32px);
 
       &--bar {
         background-color: $dark-charcoal;
         border-radius: px-to-rem(5);
         height: 100%;
-        width: 66%;
-        padding: 0 px-to-rem(16);
+        width: 0%;
         transition: width 0.1s linear;
       }
 
@@ -170,9 +170,9 @@ body {
 
         &:before,
         &:after {
+          content: '';
           position: absolute;
           top: px-to-rem(5);
-          content: '';
           box-sizing: border-box;
           border-color: transparent transparent transparent $titanium;
           border-style: solid;

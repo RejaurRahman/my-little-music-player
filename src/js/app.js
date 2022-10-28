@@ -2,6 +2,8 @@ const songCover = document.querySelector('img');
 const songTitle = document.getElementById('playerTitle');
 const artistTitle = document.getElementById('playerArtist');
 const music = document.querySelector('audio');
+const progressContainer = document.getElementById('playerProgress');
+const progressBar = document.getElementById('progressBar');
 const prevButton = document.getElementById('prevControl');
 const nextButton = document.getElementById('nextControl');
 const playButton = document.getElementById('playControl');
@@ -82,4 +84,42 @@ function loadSong(song) {
   songCover.src = `assets/image/${song.cover}.jpg`;
 }
 
-loadSong(songs[0]);
+let songIndex = 0;
+
+function prevSong() {
+  songIndex--;
+
+  if (songIndex < 0) {
+    songIndex = songs.length - 1;
+  }
+
+  loadSong(songs[songIndex]);
+  playSong();
+}
+
+function nextSong() {
+  songIndex++;
+
+  if (songIndex > songs.length - 1) {
+    songIndex = 0;
+  }
+
+  loadSong(songs[songIndex]);
+  playSong();
+}
+
+function updateProgressBar(event) {
+  if (isPlaying) {
+    const { duration, currentTime } = event.srcElement;
+
+    const progressPercentage = (currentTime / duration) * 100;
+
+    progressBar.style.width = `${progressPercentage}%`;
+  }
+}
+
+loadSong(songs[songIndex]);
+
+prevButton.addEventListener('click', prevSong);
+nextButton.addEventListener('click', nextSong);
+music.addEventListener('timeupdate', updateProgressBar);
