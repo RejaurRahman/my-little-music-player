@@ -112,17 +112,40 @@ body {
         }
       }
 
-      &--play {
+      &--play,
+      &--pause {
         position: relative;
 
         &:before {
           position: absolute;
           content: '';
-          left: px-to-rem(6);
-          box-sizing: border-box;
-          border-color: transparent transparent transparent $titanium;
-          border-style: solid;
-          border-width: px-to-rem(15) 0 px-to-rem(15) px-to-rem(30);
+        }
+      }
+
+      &--play:before {
+        left: px-to-rem(6);
+        box-sizing: border-box;
+        border-color: transparent transparent transparent $titanium;
+        border-style: solid;
+        border-width: px-to-rem(15) 0 px-to-rem(15) px-to-rem(30);
+      }
+
+      &--pause {
+        &:before,
+        &:after {
+          width: px-to-rem(10);
+          height: 100%;
+          background-color: $titanium;
+        }
+
+        &:before {
+          left: 6px;
+        }
+
+        &:after {
+          position: absolute;
+          content: '';
+          left: 24px;
         }
       }
 
