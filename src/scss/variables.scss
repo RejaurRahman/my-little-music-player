@@ -5,3 +5,14 @@ $dark-charcoal: #333;
 $titanium: #878686;
 $white: #fff;
 $blue-bolt: #0af;
+
+// Function to convert px to rem
+$html-font-size: 16px;
+
+@function stripUnit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@function px-to-rem($pxValue) {
+  @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
+}
