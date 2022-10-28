@@ -7,12 +7,24 @@
 </head>
 <body>
   <div class="player">
-    <div class="player__image">
-      <img src="image/tower-fishing.jpg" alt="Album Art" />
+    <div class="player__block">
+      <img src="image/tower-fishing.jpg" alt="Album Art" class="player__image" />
+    </div>
+    <h2 class="player__title" id="playerTitle">soft speak</h2>
+    <h3 class="player__artist" id="playerArtist">siarate</h3>
+    <audio src="music/soft_speak-siarate.mp3"></audio>
+    <div class="player__progress" id="playerProgress">
+      <div class="player__progress--bar" id="progressBar"></div>
+      <div class="player__progress--duration">
+        <span id="currentTime">0:00</span>
+        <span id="songTime">2:45</span>
+      </div>
+    </div>
+    <div class="player__controls">
+      <span class="player__controls--control player__controls--backward" id="prevControl" title="Previous"></span>
+      <span class="player__controls--control player__controls--play" id="playControl" title="Play"></span>
+      <span class="player__controls--control player__controls--forward" id="nextControl" title="Next"></span>
     </div>
   </div>
-  <h2 class="player__title" id="playerTitle">soft speak</h2>
-  <h3 class="player__artist" id="playerArtist">siarate</h3>
-  <audio src="music/soft_speak-siarate.mp3" controls></audio>
 </body>
 </html>
