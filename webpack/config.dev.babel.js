@@ -120,6 +120,6 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jpg', '.html', '.scss', '.mp3', '.woff2'],
+    extensions: ['.js', '.jpg', '.png', '.html', '.scss', '.mp3', '.woff2'],
   },
 };

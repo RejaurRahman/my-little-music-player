@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 const songCover = document.querySelector('img');
 const songTitle = document.getElementById('playerTitle');
 const artistTitle = document.getElementById('playerArtist');
