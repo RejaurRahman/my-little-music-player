@@ -10,6 +10,7 @@ const prevButton = document.getElementById('prevControl');
 const nextButton = document.getElementById('nextControl');
 const playButton = document.getElementById('playControl');
 
+// Music List
 const songs = [
   {
     name: 'soft_speak-siarate',
@@ -61,34 +62,41 @@ const songs = [
   }
 ];
 
+// Check if song is playing
 let isPlaying = false;
 
-function playSong() {
+// Play function
+const playSong = () => {
   isPlaying = true;
   playButton.classList.replace('player__controls--play', 'player__controls--pause');
   playButton.setAttribute('title', 'Pause');
   music.play();
-}
+};
 
-function pauseSong() {
+// Pause function
+const pauseSong = () => {
   isPlaying = false;
   playButton.classList.replace('player__controls--pause', 'player__controls--play');
   playButton.setAttribute('title', 'Play');
   music.pause();
-}
+};
 
+// Play or Pause Toggling Event Listener
 playButton.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
 
-function loadSong(song) {
+// Loading Song whilst updating DOM
+const loadSong = (song) => {
   songTitle.textContent = song.songName;
   artistTitle.textContent = song.artist;
   music.src = `assets/music/${song.name}.mp3`;
   songCover.src = `assets/image/${song.cover}.jpg`;
-}
+};
 
+// Current song on list
 let songIndex = 0;
 
-function prevSong() {
+// Previous song function
+const prevSong = () => {
   songIndex--;
 
   if (songIndex < 0) {
@@ -97,9 +105,10 @@ function prevSong() {
 
   loadSong(songs[songIndex]);
   playSong();
-}
+};
 
-function nextSong() {
+// Next song function
+const nextSong = () => {
   songIndex++;
 
   if (songIndex > songs.length - 1) {
@@ -108,23 +117,31 @@ function nextSong() {
 
   loadSong(songs[songIndex]);
   playSong();
-}
+};
 
-function updateProgressBar(event) {
+// On load select the first song to play
+loadSong(songs[songIndex]);
+
+// Update progress bar and current and duration time of song played
+const updateProgressBar = (event) => {
   if (isPlaying) {
     const { duration, currentTime } = event.srcElement;
 
+    // Update progress bar width
     const progressPercentage = (currentTime / duration) * 100;
 
     progressBar.style.width = `${progressPercentage}%`;
 
+    // Calculate display for duration
     const durationMinutes = Math.floor(duration / 60);
     let durationSeconds = Math.floor(duration % 60);
 
+    // Delay switching duration element to avoid NaN
     if (durationSeconds < 10) {
       durationSeconds = `0${durationSeconds}`;
     }
 
+    // Calculate display for current time of song
     if (durationSeconds) {
       durationSongTime.textContent = `${durationMinutes}:${durationSeconds}`;
     }
@@ -138,17 +155,17 @@ function updateProgressBar(event) {
 
     currentSongTime.textContent = `${currentMinutes}:${currentSeconds}`;
   }
-}
+};
 
+// Set progress bar function
 function setProgressBar(event) {
   const width = this.clientWidth;
   const clickedBar = event.offsetX;
   const { duration } = music;
-  music.currentTime = (clickedBar / width) * duration;
+  music.currentTime = clickedBar / width * duration;
 }
 
-loadSong(songs[songIndex]);
-
+// Event listeners
 prevButton.addEventListener('click', prevSong);
 nextButton.addEventListener('click', nextSong);
 music.addEventListener('ended', nextSong);
