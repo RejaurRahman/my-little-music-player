@@ -203,7 +203,51 @@ body {
         font-size: px-to-rem(20);
       }
     }
+
+    &__info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: px-to-rem(5);
+      right: px-to-rem(5);
+      width: px-to-rem(24);
+      height: px-to-rem(24);
+      border-radius: 50%;
+      background-color: $titanium;
+      color: $white;
+      animation: pulse 1s infinite;
+      cursor: pointer;
+
+      @media screen and (min-width: 376px) {
+        top: px-to-rem(10);
+        right: px-to-rem(10);
+      }
+    }
+
+    &__tooltip {
+      visibility: hidden;
+      pointer-events: none;
+      position: fixed;
+      margin-top: px-to-rem(5);
+	    background-color: $dark-charcoal;
+	    color: $white;
+      right: px-to-rem(5);
+      top: px-to-rem(30);
+      border: px-to-rem(1) solid $platinum;
+      border-radius: px-to-rem(4);
+      padding: px-to-rem(4) px-to-rem(8);
+	    font-size: px-to-rem(12);
+
+      @media screen and (min-width: 376px) {
+        right: px-to-rem(10);
+      }
+    }
   }
+}
+
+[title]:hover + .player__tooltip {
+	visibility: visible;
 }
 
 @keyframes pulse {

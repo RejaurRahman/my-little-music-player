@@ -10,6 +10,7 @@ const progressBar = document.getElementById('progressBar');
 const prevButton = document.getElementById('prevControl');
 const nextButton = document.getElementById('nextControl');
 const playButton = document.getElementById('playControl');
+const playerInfoTitle = document.querySelectorAll('[title]');
 
 // Music List
 const songs = [
@@ -164,6 +165,17 @@ function setProgressBar(event) {
   const clickedBar = event.offsetX;
   const { duration } = music;
   music.currentTime = clickedBar / width * duration;
+}
+
+// Player info clicked to toggle information
+const tooltip = (element) => {
+  const title = element.getAttribute('title');
+
+  element.insertAdjacentHTML('afterend', `<div class="player__tooltip">${title}</div>`);
+};
+
+for (let i = 0; i < playerInfoTitle.length; i++) {
+  tooltip(playerInfoTitle[i]);
 }
 
 // Event listeners
